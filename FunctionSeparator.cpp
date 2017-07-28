@@ -42,7 +42,7 @@ string getFunctionName (int &currentIndex) {
     }
     
     currentIndex ++;
-    while (receivedInput [currentIndex] != ' ' && receivedInput [currentIndex] != '\n') {
+    while (receivedInput [currentIndex] != ' ' && receivedInput [currentIndex] != '\n' && receivedInput [currentIndex] != global.getfunctionDefChar()) {
         functionName += receivedInput [currentIndex];
         currentIndex ++;
     }
@@ -69,7 +69,12 @@ void separateInFunctions () {
     string newFunctionData;
     int index = 0;
     
-    while (index < receivedInput.size ()) {
+    if (receivedInput.size () == 0) {
+        cout << "Invalid input file";
+        exit (EXIT_FAILURE);
+    }
+    
+    while (index < receivedInput.size () - 1) {
         newFunctionName = getFunctionName (index);
         newFunctionData = getFunctionData (index);
         global.addToFunctionList(newFunctionName, newFunctionData);
