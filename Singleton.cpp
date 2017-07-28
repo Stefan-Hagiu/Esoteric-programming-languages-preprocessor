@@ -8,6 +8,8 @@
 
 #include "Singleton.hpp"
 
+static char functionDefChar;
+static char functionBodyChar;
 
 void Singleton::setfunctionDefChar(char newfunctionDefChar) {
         functionDefChar = newfunctionDefChar;

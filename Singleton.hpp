@@ -12,9 +12,6 @@
 class Singleton {
 private:
     
-    static char functionDefChar;
-    static char functionBodyChar;
-    
 public:
     
     void setfunctionDefChar(char newfunctionDefChar);
