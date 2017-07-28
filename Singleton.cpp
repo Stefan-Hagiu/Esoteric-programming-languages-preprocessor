@@ -19,8 +19,8 @@ string outputFileName;
 
 class functionClass {
 public:
-    string functionData;
     string functionName;
+    string functionData;
 };
 vector <functionClass> functionList;
 
@@ -49,4 +49,11 @@ string Singleton::getinputFileName () {
 }
 string Singleton::getoutputFileName () {
     return outputFileName;
+}
+
+void Singleton::addToFunctionList (string functionName, string functionData) {
+    functionClass newFunction;
+    newFunction.functionName = functionName;
+    newFunction.functionData = functionData;
+    functionList.push_back(newFunction);
 }

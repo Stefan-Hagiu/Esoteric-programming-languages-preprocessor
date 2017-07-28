@@ -27,6 +27,8 @@ public:
     std::string getinputFileName ();
     std::string getoutputFileName ();
     
+    void addToFunctionList (std::string functionName, std::string functionData);
+    
 };
 
 #endif /* Singleton_hpp */
