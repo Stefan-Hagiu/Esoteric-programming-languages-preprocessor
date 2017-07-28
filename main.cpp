@@ -8,8 +8,8 @@
 
 #include "GetUserInput.hpp"
 #include "Singleton.hpp"
-#include <iostream>
 
 int main() {
     getUserInput();
+    
 }

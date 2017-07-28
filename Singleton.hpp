@@ -9,16 +9,24 @@
 #ifndef Singleton_hpp
 #define Singleton_hpp
 
+#include <string>
+#include <iostream>
+
 class Singleton {
 private:
     
 public:
     
-    void setfunctionDefChar(char newfunctionDefChar);
-    void setfunctionBodyChar(char newfunctionBodyChar);
+    void setfunctionDefChar (char newfunctionDefChar);
+    void setfunctionBodyChar (char newfunctionBodyChar);
+    void setinputFileName (std::string newinputFileName);
+    void setoutputFileName (std::string newoutputFileName);
     
     char getfunctionDefChar ();
     char getfunctionBodyChar ();
+    std::string getinputFileName ();
+    std::string getoutputFileName ();
+    
 };
 
 #endif /* Singleton_hpp */

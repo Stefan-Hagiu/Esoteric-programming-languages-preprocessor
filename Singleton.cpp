@@ -8,8 +8,13 @@
 
 #include "Singleton.hpp"
 
-static char functionDefChar;
-static char functionBodyChar;
+using namespace std;
+
+char functionDefChar;
+char functionBodyChar;
+string inputFileName;
+string outputFileName;
+
 
 void Singleton::setfunctionDefChar(char newfunctionDefChar) {
         functionDefChar = newfunctionDefChar;
@@ -17,10 +22,22 @@ void Singleton::setfunctionDefChar(char newfunctionDefChar) {
 void Singleton::setfunctionBodyChar(char newfunctionBodyChar) {
         functionBodyChar = newfunctionBodyChar;
     }
-    
+void Singleton::setinputFileName (string newinputFileName) {
+    inputFileName = newinputFileName;
+}
+void Singleton::setoutputFileName (string newoutputFileName) {
+    outputFileName = newoutputFileName;
+}
+
 char Singleton::getfunctionDefChar () {
         return functionDefChar;
     }
 char Singleton::getfunctionBodyChar () {
         return functionBodyChar;
     }
+string Singleton::getinputFileName () {
+    return inputFileName;
+}
+string Singleton::getoutputFileName () {
+    return outputFileName;
+}
