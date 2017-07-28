@@ -12,17 +12,17 @@
 
 using namespace std;
 
-char functionDefChar;
-char functionBodyChar;
-string inputFileName;
-string outputFileName;
+static char functionDefChar;
+static char functionBodyChar;
+static string inputFileName;
+static string outputFileName;
 
 class functionClass {
 public:
     string functionName;
     string functionData;
 };
-vector <functionClass> functionList;
+static vector <functionClass> functionList;
 
 
 void Singleton::setfunctionDefChar(char newfunctionDefChar) {

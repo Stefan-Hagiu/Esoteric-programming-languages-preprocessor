@@ -14,9 +14,9 @@
 
 using namespace std;
 
-Singleton global;
+static Singleton global;
 
-string receivedInput;
+static string receivedInput;
 
 void readInput () {
     string textLine;
