@@ -25,6 +25,7 @@ void readInput () {
     while (!reader.eof ()) {
         getline(reader, textLine);
         receivedInput += textLine;
+        receivedInput += '\n';
     }
     
     separateInFunctions();
@@ -32,14 +33,16 @@ void readInput () {
 
 string getFunctionName (int &currentIndex) {
     string functionName;
-    
-    if (receivedInput [currentIndex] != global.getfunctionDefChar()) {
-        cout << "Invalid input file";
-        exit (EXIT_FAILURE);
+    while (receivedInput [currentIndex] != global.getfunctionDefChar()) {
+        currentIndex ++;
+        if (currentIndex == receivedInput.size ()) {
+            cout << "Invalid input file";
+            exit (EXIT_FAILURE);
+        }
     }
     
     currentIndex ++;
-    while (receivedInput [currentIndex] != ' ') {
+    while (receivedInput [currentIndex] != ' ' && receivedInput [currentIndex] != '\n') {
         functionName += receivedInput [currentIndex];
         currentIndex ++;
     }
@@ -57,6 +60,7 @@ string getFunctionData (int &currentIndex) {
             exit (EXIT_FAILURE);
         }
     }
+    currentIndex ++;
     return functionData;
 }
 
@@ -68,6 +72,7 @@ void separateInFunctions () {
     while (index < receivedInput.size ()) {
         newFunctionName = getFunctionName (index);
         newFunctionData = getFunctionData (index);
+        global.addToFunctionList(newFunctionName, newFunctionData);
     }
-    global.addToFunctionList(newFunctionName, newFunctionData);
+    
 }
