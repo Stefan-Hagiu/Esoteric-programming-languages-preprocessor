@@ -7,6 +7,8 @@
 //
 
 #include "Singleton.hpp"
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -14,6 +16,13 @@ char functionDefChar;
 char functionBodyChar;
 string inputFileName;
 string outputFileName;
+
+class functionClass {
+public:
+    string functionData;
+    string functionName;
+};
+vector <functionClass> functionList;
 
 
 void Singleton::setfunctionDefChar(char newfunctionDefChar) {
