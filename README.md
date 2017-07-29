@@ -43,7 +43,6 @@ Given the following input: (* & input.txt output.txt) and the file:
 *cc
 
 text2
-
 *
 
 
@@ -54,7 +53,6 @@ text1
 &aa&
 
 text4
-
 *
 
 
@@ -65,7 +63,6 @@ text4
 text3
 
 &cc&
-
 *
 
 
