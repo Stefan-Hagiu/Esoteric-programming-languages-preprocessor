@@ -52,6 +52,13 @@ void Singleton::addToFunctionList (string functionName, string functionData) {
     functionClass newFunction;
     newFunction.functionName = functionName;
     newFunction.functionData = functionData;
+    int index;
+    for (index = 0; index < functionList.size(); index++) {
+        if (functionList [index].functionName == newFunction.functionName) {
+            cout << "Error: function redefinition.";
+            exit (EXIT_FAILURE);
+        }
+    }
     functionList.push_back(newFunction);
 }
 
