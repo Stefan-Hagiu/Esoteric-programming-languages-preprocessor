@@ -37,6 +37,7 @@ public:
     
     int getFunctionCount ();
     functionClass& getFunctionAtIndexByReference (int index);
+    std::string getFunctionDataByFunctionName (std::string functionName);
     
 };
 

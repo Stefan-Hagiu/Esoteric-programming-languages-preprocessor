@@ -61,3 +61,15 @@ int Singleton::getFunctionCount () {
 functionClass& Singleton::getFunctionAtIndexByReference (int index) {
     return functionList [index];
 }
+
+string getFunctionDataByFunctionName (string functionName) {
+    int index;
+    for (index = 0; index < functionList.size(); index++) {
+        if (functionList [index].functionName == functionName) {
+            return functionList [index].functionData;
+        }
+    }
+    cout << "Invalid input";
+    exit (EXIT_FAILURE);
+}
+
