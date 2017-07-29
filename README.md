@@ -38,7 +38,7 @@ To compile, open a terminal window, go where the program folder is located and t
 
 1) g++ -c *.cpp
 
-2) g++ *.o -o a.out
+2) g++ *.o -o Preprocessor
 
  Alternatively, you can use an IDE, such as Code::Blocks or Xcode.
 
