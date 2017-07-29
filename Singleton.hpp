@@ -12,6 +12,12 @@
 #include <string>
 #include <iostream>
 
+class functionClass {
+public:
+    std::string functionName;
+    std::string functionData;
+};
+
 class Singleton {
 private:
     
@@ -28,6 +34,9 @@ public:
     std::string getoutputFileName ();
     
     void addToFunctionList (std::string functionName, std::string functionData);
+    
+    int getFunctionCount ();
+    functionClass& getFunctionAtIndexByReference (int index);
     
 };
 

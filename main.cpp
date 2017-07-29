@@ -9,8 +9,10 @@
 #include "GetUserInput.hpp"
 #include "Singleton.hpp"
 #include "FunctionSeparator.hpp"
+#include "FunctionExtender.hpp"
 
 int main() {
     getUserInput();
     readInput();
+    
 }

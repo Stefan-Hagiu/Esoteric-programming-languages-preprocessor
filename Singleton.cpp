@@ -17,11 +17,7 @@ static char functionBodyChar;
 static string inputFileName;
 static string outputFileName;
 
-class functionClass {
-public:
-    string functionName;
-    string functionData;
-};
+
 static vector <functionClass> functionList;
 
 
@@ -56,4 +52,12 @@ void Singleton::addToFunctionList (string functionName, string functionData) {
     newFunction.functionName = functionName;
     newFunction.functionData = functionData;
     functionList.push_back(newFunction);
+}
+
+int Singleton::getFunctionCount () {
+    return functionList.size();
+}
+
+functionClass& Singleton::getFunctionAtIndexByReference (int index) {
+    return functionList [index];
 }
