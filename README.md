@@ -34,25 +34,40 @@ Formatting the source file is easy:
 
 At startup, the program requires 4 inputs from the user: the function definition char, the function body char, the input file and the output file.
 
+To compile, open a terminal window and type g++ *.cpp -o Preprocessor. Alternatively, you can use an IDE, such as Code::Blocks or Xcode.
+
 # Completed example
 
 Given the following input: (* & input.txt output.txt) and the file:
 
 *cc
+
 text2
+
 *
+
 
 *main
+
 text1
+
 &aa&
+
 text4
+
 *
 
+
 *aa
+
 &cc&
+
 text3
+
 &cc&
+
 *
+
 
 The program will write the following code in output.txt:
 
