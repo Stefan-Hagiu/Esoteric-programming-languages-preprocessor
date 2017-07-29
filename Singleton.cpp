@@ -62,7 +62,7 @@ functionClass& Singleton::getFunctionAtIndexByReference (int index) {
     return functionList [index];
 }
 
-string getFunctionDataByFunctionName (string functionName) {
+string Singleton::getFunctionDataByFunctionName (string functionName) {
     int index;
     for (index = 0; index < functionList.size(); index++) {
         if (functionList [index].functionName == functionName) {
@@ -73,3 +73,13 @@ string getFunctionDataByFunctionName (string functionName) {
     exit (EXIT_FAILURE);
 }
 
+string Singleton::returnMainData () {
+    int index;
+    for (index = 0; index < functionList.size(); index++) {
+        if (functionList [index].functionName == "main") {
+            return functionList [index].functionData;
+        }
+    }
+    cout << "Invalid input";
+    exit (EXIT_FAILURE);
+}
