@@ -30,7 +30,18 @@ string findMainData () {
     exit(EXIT_FAILURE);
 }
 
-void getFunctionReferences() {
+string getFunctionDataByFunctionName (string functionName) {
+    int index;
+    for (index = 0; index < functionValues.size(); index++) {
+        if (functionValues [index].functionName == functionName) {
+            return functionValues [index].functionData;
+        }
+    }
+    cout << "Invalid input";
+    exit (EXIT_FAILURE);
+}
+
+void getFunctionValues() {
     int index;
     for (index = 0; index < global.getFunctionCount(); index++) {
         functionValues.push_back (global.getFunctionAtIndex(index));
@@ -64,17 +75,18 @@ void tryExpandingCode (string &functionData) {
         for (index = 0; index < firstOccurence; index++) {
             newfunctionData += functionData [index];
         }
-        newfunctionData += global.getFunctionDataByFunctionName (getName (firstOccurence + 1, secondOccurence - 1, functionData) );
+        newfunctionData += getFunctionDataByFunctionName (getName (firstOccurence + 1, secondOccurence - 1, functionData) );
         for (index = secondOccurence + 1; index < functionData.size(); index ++) {
             newfunctionData += functionData [index];
         }
         functionData = newfunctionData;
+        newfunctionData = "";
     }
 }
 
 void extendFunctions () {
     int index;
-    getFunctionReferences();
+    getFunctionValues();
     while (!finishedExpanding) {
         oneFunctionExpanded = false;
         for (index = 0; index < functionValues.size(); index ++) {
