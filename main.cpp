@@ -22,5 +22,7 @@ int main() {
     
     std::ofstream writer;
     writer.open (global.getoutputFileName());
-    writer << global.returnMainData();
+    writer << global.getFinalMainFunctionData();
+    writer.flush();
+    return 0;
 }

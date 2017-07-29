@@ -16,6 +16,7 @@ static char functionDefChar;
 static char functionBodyChar;
 static string inputFileName;
 static string outputFileName;
+static string finalMainFunctionData;
 
 
 static vector <functionClass> functionList;
@@ -58,7 +59,7 @@ int Singleton::getFunctionCount () {
     return functionList.size();
 }
 
-functionClass& Singleton::getFunctionAtIndexByReference (int index) {
+functionClass& Singleton::getFunctionAtIndex (int index) {
     return functionList [index];
 }
 
@@ -73,13 +74,9 @@ string Singleton::getFunctionDataByFunctionName (string functionName) {
     exit (EXIT_FAILURE);
 }
 
-string Singleton::returnMainData () {
-    int index;
-    for (index = 0; index < functionList.size(); index++) {
-        if (functionList [index].functionName == "main") {
-            return functionList [index].functionData;
-        }
-    }
-    cout << "Invalid input";
-    exit (EXIT_FAILURE);
+void Singleton::setFinalMainFunctionData (std::string data) {
+    finalMainFunctionData = data;
+}
+std::string Singleton::getFinalMainFunctionData () {
+    return finalMainFunctionData;
 }

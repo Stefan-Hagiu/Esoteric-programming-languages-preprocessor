@@ -14,15 +14,26 @@
 using namespace std;
 
 static Singleton global;
-static vector<functionClass> functionReferences;
+static vector<functionClass> functionValues;
 
 static bool finishedExpanding = false;
 static bool oneFunctionExpanded;
 
+string findMainData () {
+    int index;
+    for (index = 0; index < functionValues.size(); index++) {
+        if (functionValues [index].functionName == "main") {
+            return functionValues [index].functionData;
+        }
+    }
+    cout << "Invalid input";
+    exit(EXIT_FAILURE);
+}
+
 void getFunctionReferences() {
     int index;
     for (index = 0; index < global.getFunctionCount(); index++) {
-        functionReferences.push_back (global.getFunctionAtIndexByReference(index));
+        functionValues.push_back (global.getFunctionAtIndex(index));
     }
 }
 
@@ -66,9 +77,10 @@ void extendFunctions () {
     getFunctionReferences();
     while (!finishedExpanding) {
         oneFunctionExpanded = false;
-        for (index = 0; index < functionReferences.size(); index ++) {
-            tryExpandingCode (functionReferences [index].functionData);
+        for (index = 0; index < functionValues.size(); index ++) {
+            tryExpandingCode (functionValues [index].functionData);
         }
         finishedExpanding = !oneFunctionExpanded;
     }
+    global.setFinalMainFunctionData(findMainData());
 }
