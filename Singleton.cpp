@@ -59,7 +59,7 @@ int Singleton::getFunctionCount () {
     return functionList.size();
 }
 
-functionClass& Singleton::getFunctionAtIndex (int index) {
+functionClass Singleton::getFunctionAtIndex (int index) {
     return functionList [index];
 }
 

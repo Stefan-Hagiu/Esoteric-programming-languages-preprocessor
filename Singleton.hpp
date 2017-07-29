@@ -36,7 +36,7 @@ public:
     void addToFunctionList (std::string functionName, std::string functionData);
     
     int getFunctionCount ();
-    functionClass& getFunctionAtIndex (int index);
+    functionClass getFunctionAtIndex (int index);
     std::string getFunctionDataByFunctionName (std::string functionName);
     
     void setFinalMainFunctionData (std::string data);

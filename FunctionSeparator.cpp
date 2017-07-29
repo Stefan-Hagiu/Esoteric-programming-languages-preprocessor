@@ -45,7 +45,9 @@ string getFunctionName (int &currentIndex) {
         functionName += receivedInput [currentIndex];
         currentIndex ++;
     }
-    
+    if (receivedInput [currentIndex] == ' ' || receivedInput [currentIndex] == '\n') {
+        currentIndex ++;
+    }
     return functionName;
 }
 
@@ -58,6 +60,9 @@ string getFunctionData (int &currentIndex) {
             cout << "Invalid input file";
             exit (EXIT_FAILURE);
         }
+    }
+    if (functionData [functionData.size() - 1] == ' ' || functionData [functionData.size() - 1] == '\n') {
+        functionData.pop_back();
     }
     currentIndex ++;
     return functionData;
