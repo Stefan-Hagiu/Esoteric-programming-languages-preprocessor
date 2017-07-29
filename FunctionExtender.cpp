@@ -12,8 +12,8 @@
 
 using namespace std;
 
-Singleton global;
-vector<functionClass> functionReferences;
+static Singleton global;
+static vector<functionClass> functionReferences;
 
 void getFunctionReferences() {
     int index;
