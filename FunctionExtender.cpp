@@ -1,5 +1,4 @@
 #include "FunctionExtender.hpp"
-#include "Singleton.hpp"
 #include <string>
 #include <vector>
 

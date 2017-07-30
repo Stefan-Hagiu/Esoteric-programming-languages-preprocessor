@@ -1,11 +1,9 @@
 #include <fstream>
-
 #include "GetUserInput.hpp"
 #include "Singleton.hpp"
-#include "FunctionSeparator.hpp"
 #include "FunctionExtender.hpp"
 
-Singleton global;
+static Singleton global;
 
 int main() {
     getUserInput();

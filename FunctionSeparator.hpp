@@ -1,8 +1,11 @@
 #ifndef FunctionSeparator_hpp
 #define FunctionSeparator_hpp
 
-void readInput ();
-void separateInFunctions ();
+#include "Singleton.hpp"
+
+#include <string>
+
+void separateInFunctions (std::string receivedInput);
 
 
 #endif /* FunctionSeparator_hpp */

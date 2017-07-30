@@ -1,5 +1,4 @@
 #include "FunctionSeparator.hpp"
-#include "Singleton.hpp"
 #include <string>
 #include <fstream>
 #include <vector>
@@ -8,22 +7,7 @@ using namespace std;
 
 static Singleton global;
 
-static string receivedInput;
-
-void readInput () {
-    string textLine;
-    fstream reader;
-    reader.open (global.getinputFileName ());
-    while (!reader.eof ()) {
-        getline(reader, textLine);
-        receivedInput += textLine;
-        receivedInput += '\n';
-    }
-    
-    separateInFunctions();
-}
-
-string getFunctionName (int &currentIndex) {
+string getFunctionName (int &currentIndex, string receivedInput) {
     string functionName;
     while (receivedInput [currentIndex] != global.getfunctionDefChar()) {
         currentIndex ++;
@@ -43,7 +27,7 @@ string getFunctionName (int &currentIndex) {
     return functionName;
 }
 
-string getFunctionData (int &currentIndex) {
+string getFunctionData (int &currentIndex, string receivedInput) {
     string functionData;
     while (receivedInput [currentIndex] != global.getfunctionDefChar()) {
         functionData += receivedInput [currentIndex];
@@ -60,7 +44,7 @@ string getFunctionData (int &currentIndex) {
     return functionData;
 }
 
-void separateInFunctions () {
+void separateInFunctions (string receivedInput) {
     string newFunctionName;
     string newFunctionData;
     int index = 0;
@@ -71,9 +55,9 @@ void separateInFunctions () {
     }
     
     while (index < receivedInput.size () - 1) {
-        newFunctionName = getFunctionName (index);
+        newFunctionName = getFunctionName (index, receivedInput);
         if (index < receivedInput.size()) {
-            newFunctionData = getFunctionData (index);
+            newFunctionData = getFunctionData (index, receivedInput);
         }
         global.addToFunctionList(newFunctionName, newFunctionData);
     }
