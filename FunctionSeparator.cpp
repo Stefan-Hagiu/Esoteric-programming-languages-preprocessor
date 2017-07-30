@@ -1,11 +1,3 @@
-//
-//  FunctionSeparator.cpp
-//  Esoteric programming languages preprocessor
-//
-//  Created by Stefan Hagiu on 7/28/17.
-//  Copyright © 2017 Stefan Hagiu. All rights reserved.
-//
-
 #include "FunctionSeparator.hpp"
 #include "Singleton.hpp"
 #include <string>
